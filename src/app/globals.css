@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-cinzel), Georgia, serif;
+  
+  --color-gold-light: #fcf6ba;
+  --color-gold: #d4af37;
+  --color-gold-dark: #aa771c;
+  
+  --color-army-black: #060907;
+  --color-army-dark: #0b170e;
+  --color-army-green: #142a1b;
+  --color-army-light: #20412b;
+}
+
+/* Custom background grid & animations */
+:root {
+  --background: #060907;
+  --foreground: #f8fcf9;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Metallic Gold Text Gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 30%, #b38728 70%, #aa771c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Metallic Gold Border Gradient */
+.border-gold-gradient {
+  border-color: transparent;
+  border-image: linear-gradient(135deg, #bf953f 0%, #fcf6ba 30%, #b38728 70%, #aa771c 100%) 1;
+}
+
+/* Card Glow Utility */
+.gold-glow-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Button Glow Animations */
+@keyframes gold-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.animate-gold-glow {
+  animation: gold-pulse 2.5s infinite;
+}
+
+/* Flag waving effect for loading screen */
+@keyframes flag-wave {
+  0% {
+    transform: rotate(0deg) translateY(0px) skewX(0deg);
+  }
+  25% {
+    transform: rotate(0.8deg) translateY(-2px) skewX(0.5deg);
+  }
+  75% {
+    transform: rotate(-0.8deg) translateY(2px) skewX(-0.5deg);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0px) skewX(0deg);
+  }
+}
+
+.animate-flag-wave {
+  animation: flag-wave 3s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060907;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #142a1b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* High Contrast and Focus States */
+input:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 1px;
+}
+
+button:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
